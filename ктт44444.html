@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Машинка</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    height: 100vh;
+    background-color: #07688f; /* Небо */
+    overflow: hidden;
+  }
+  
+  .road {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background-color: #5f5454;
+  }
+  
+  .car {
+    position: absolute;
+    
+    bottom: 100px;
+    width: 200px;
+    height: 100px;
+    background-color: #9aff47; /* Красная машина */
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .car::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    width: 120px;
+    height: 40px;
+    background-color: #FF6347;
+    border-radius: 10px;
+  }
+  
+  .wheel {
+    position: absolute;
+    bottom: -20px;
+    width: 40px;
+    height: 40px;
+    background-color: #000;
+    border-radius: 50%;
+  }
+  
+  .wheel.front {
+    left: 20px;
+  }
+  
+  .wheel.back {
+    right: 20px;
+  }
+  
+  @keyframes drive {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(calc(100vw - 250px)); /* 100vw минус 200px ширина машины и 50px отступ */
+    }
+  }
+  
+  .car {
+    animation: drive 5s linear forwards;
+  }
+</style>
+</head>
+<body>
+  <div class="road"></div>
+  <div class="car">
+    <div class="wheel front"></div>
+    <div class="wheel back"></div>
+  </div>
+</body>
+</html>
